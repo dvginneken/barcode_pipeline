@@ -1,0 +1,11 @@
+name: barcoding-pipeline
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base >= 4.0.2
+  - python >= 3.9.0
+  - pip:
+    - mgatk
+    - snakemake
