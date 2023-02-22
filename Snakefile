@@ -1,17 +1,18 @@
 configfile: "config.json"
 
+rule all:
+  input:
+    config['output_dir']+"/mgatk"
+
 rule mgatk:
   input:
-    bam = #BAM file
-    peaks = #cellranger atac output
+    bam = config['input_dir']+"/possorted_bam.bam"
+    peaks = config['input_dir']+"/barcodes.tsv"
   output:
-    #output directory
+    config['output_dir']+"/mgatk"
   shell:
     """
-    mgatk tenx -i {input.bam} \
-    -g rCRS \
-    -n lib_id -o {output} -c 5 \
-    -bt CB -b {input.peaks} \
-    --keep-duplicates \
-    --alignment-quality -1
+    mgatk tenx -i {input.bam} -g rCRS -n {config[lib_id]} \
+    -o {output} -c 5 -bt CB -b {input.peaks} \
+    --keep-duplicates --alignment-quality -1
     """
