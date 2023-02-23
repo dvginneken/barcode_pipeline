@@ -5,12 +5,13 @@
 #PBS -q batch
 #PBS -N pipeline_SRR11539031 
 #PBS -o /data/users/mvanginn/CellLineageTracing/barcode_pipeline/pipeline_SRR11539031.log
-#PBS -e //data/users/mvanginn/CellLineageTracing/barcode_pipeline/pipeline_SRR11539031.err
+#PBS -e /data/users/mvanginn/CellLineageTracing/barcode_pipeline/pipeline_SRR11539031.err
 
 source ~/.bashrc
-export PS1=
+#export PS1=
 conda activate barcoding-pipeline
 echo "Activated environment"
 
-Snakemake
+cd /data/users/mvanginn/CellLineageTracing/barcode_pipeline
+snakemake -c5
 echo "Finished pipeline"

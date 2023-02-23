@@ -6,6 +6,10 @@ channels:
 dependencies:
   - r-base >= 4.0.2
   - python >= 3.9.0
+  - r-data.table
+  - bioconductor-genomicranges
+  - r-matrix
+  - bioconductor-summarizedexperiment
   - pip
   - pip:
     - mgatk

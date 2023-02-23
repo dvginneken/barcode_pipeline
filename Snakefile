@@ -6,8 +6,8 @@ rule all:
 
 rule mgatk:
   input:
-    bam = config['input_dir']+"/possorted_bam.bam"
-    peaks = config['input_dir']+"/barcodes.tsv"
+    bam = config['input_dir']+"/possorted_bam.bam",
+    peaks = config['input_dir']+"/barcode.tsv"
   output:
     config['output_dir']+"/mgatk"
   shell:
